@@ -1,0 +1,76 @@
+<!--
+Dorian Knoblauch @mcdorians
+Netbeans 7.0.1 on Macbook Pro
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.wheelclock.min.js"></script>
+        <link rel="stylesheet" href="jquery.wheelclock.css" type="text/css" />
+        <script>
+            jQuery.fn.center = function () {
+                this.css("position","absolute");
+                this.css("top", (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop() + "px");
+                this.css("left", (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft() + "px");
+                return this;
+            }
+        </script>
+        <style>
+            @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400);
+            body {
+                background-color: #bbb;
+                font-family: 'Droid Sans', sans-serif;
+            }
+            #controls{
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                padding: 10px;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id ="box">
+        </div>
+        <div style="clear: both;"></div>
+        <div id="controls">
+            <span id="button">
+                toggle
+            </span>-
+            <span id="button2">
+                refresh
+            </span>-
+            <span id="button3">
+                stopwatch
+            </span>-
+            <span id="button4">
+                time
+            </span>
+        </div>
+    </body>
+    <script>
+        $('#box').wheelclock();
+        $('#box').center();
+        $('#button').click(function(){
+            $('#box').wheelclock('toggle');
+        });
+        $('#button2').click(function(){
+            $('#box').wheelclock('reset');
+        });
+        $('#button3').click(function(){
+            $('#box').wheelclock('destroy');
+            $('#box').wheelclock({
+                running:false,
+                mode:'stopwatch'
+            });
+        });
+        $('#button4').click(function(){
+            $('#box').wheelclock('destroy');
+            $('#box').wheelclock();
+        });
+    </script>
+</html>
