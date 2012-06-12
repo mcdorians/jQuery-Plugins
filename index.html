@@ -22,6 +22,32 @@ Netbeans 7.0.1 on Macbook Pro
                 background-repeat: repeat;
                 color: #fff;
             }
+
+            a img {border: 0;}
+
+
+            a:link {
+                text-decoration: none; 
+                color: inherit; 
+
+            } 
+            a:visited {
+                text-decoration: none; 
+                color: inherit; 
+            } 
+            a:focus { 
+                color: inherit;
+                border-bottom:1px dotted;
+            } 
+            a:hover {
+                color: inherit; 
+                border-bottom:1px dotted;
+            } 
+            a:active { 
+                color: inherit; 
+                border-bottom:1px dotted;
+            }
+
             .wc_container{
                 background-color: #bbb;
             }
@@ -41,10 +67,23 @@ Netbeans 7.0.1 on Macbook Pro
                 width: 800px !important;
                 margin: 0px 30px;
             }
+            #download {
+                text-align: center;                
+                font-size: 40px; text-transform: uppercase;
+                color: #222;
+                text-shadow: 0px 2px 3px #666;
+            }
+            #download a:hover{
+                color: #111;
+                text-shadow: 0px 2px 3px #666;
+            }
         </style>
     </head>
     <body onload="prettyPrint()">
         <h1>jQuery - Wheelclock</h1>
+        <div id="download">
+            <a href="https://github.com/mcdorians/jQuery-Plugins/zipball/master">Download zip</a>
+        </div>
         <h2>Time Mode</h2>
         <div id ="normal"></div>
         <div style="clear: both;"></div>
