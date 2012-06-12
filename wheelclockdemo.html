@@ -1,0 +1,152 @@
+<!--
+Dorian Knoblauch @mcdorians
+Netbeans 7.0.1 on Macbook Pro
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.wheelclock.min.js"></script>
+        <link rel="stylesheet" href="jquery.wheelclock.css" type="text/css" />
+        <!--Using google-code-prettify-->
+        <link href="prettify.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="prettify.js"></script>
+
+        <style>
+            @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400);
+            body{
+                font-family: 'Droid Sans', sans-serif;
+                background-image: url(pattern1.png);
+                background-repeat: repeat;
+                color: #fff;
+            }
+            .wc_container{
+                background-color: #bbb;
+            }
+            h1{              
+                text-align: center;
+                font-size: 70px; text-transform: uppercase;
+                color: #222;
+                text-shadow: 0px 2px 3px #666;
+            }
+            #controls {
+                text-align: center;
+            }
+            #toggle:hover,#refresh:hover {
+                color: #bbb;
+            }            
+            .code {
+                width: 800px !important;
+                margin: 0px 30px;
+            }
+        </style>
+    </head>
+    <body onload="prettyPrint()">
+        <h1>jQuery - Wheelclock</h1>
+        <h2>Time Mode</h2>
+        <div id ="normal"></div>
+        <div style="clear: both;"></div>
+        <script>
+            $('#normal').wheelclock();
+        </script>
+        <div class="code">
+            How to use:
+            <ul>
+                <li>import jquery</li>
+                <li>import plugin</li>
+                <li>import css and change it as you like to adjust the layout to your needs</li>
+            </ul>
+            <pre class="prettyprint">
+                &lt;link href="jquery.wheelclock.css" type="text/css" rel="stylesheet" /&gt;
+                &lt;script type="text/javascript" src="jquery.wheelclock.min.js"&gt;&lt;/script&gt;
+                &lt;script&gt;
+                    $('#normal').wheelclock();
+                &lt;/script&gt;
+            </pre>
+        </div>
+        <h2>Stopwatch</h2>
+        <div id ="stop"></div>
+        <div style="clear: both;"></div>
+        <div id="controls">
+            <span id="toggle">
+                toggle
+            </span>-
+            <span id="refresh">
+                refresh
+            </span>
+        </div>
+        <div class="code">
+            How to use:
+            <ul>
+                <li>pass the 'stopwatch'</li>
+                <li>create buttons</li>
+                <li>let the buttons trigger 'toggle' and 'reset'</li>
+            </ul>
+            <pre class="prettyprint">
+                $('#stop').wheelclock({
+                    mode:'stopwatch'
+                });
+                //Buttons made simple with jQuery 
+                $('#toggle').click(function(){
+                    $('#stop').wheelclock('toggle');
+                });
+                $('#refresh').click(function(){
+                    $('#stop').wheelclock('reset');
+                });
+            </pre>
+        </div>
+        <script>
+            $('#stop').wheelclock({
+                mode:'stopwatch'
+            });
+            $('#toggle').click(function(){
+                $('#stop').wheelclock('toggle');
+            });
+            $('#refresh').click(function(){
+                $('#stop').wheelclock('reset');
+            });
+        </script>
+        <h2>More options</h2>
+        <div id ="options"></div>
+        <div style="clear: both;"></div>
+        <div class="code">  
+            <ul>
+                <li>mode: can be either 'clock' or 'stopwatch', default: 'clock</li>
+                <li>running: if true then the clock is ticking, on false its stoped, default: true</li>
+                <li>seconds: if true then the seconds count is displayed, default: true</li>
+                <li>speed: value from 0 to 900, specifys the time for the rotation, default : 500</li>
+            </ul>
+            <pre class="prettyprint">
+                $('#options').wheelclock({
+                    mode:'clock',
+                    running:'true',
+                    seconds: false,
+                    speed: 200
+                });
+            </pre>
+        </div>
+        <script>
+            $('#options').wheelclock({
+                mode:'clock',
+                running:'true',
+                seconds: false,
+                speed: 200
+            });
+        </script>
+        <h2>More methods</h2>
+        <div class="code">  
+            <ul>
+                <li>toggle: toggles between running and not running</li>
+                <li>reset: rests the clock depending on the mode. In clock-mode it return to the current system time an in stopwatch-mode it return to zero.</li>
+                <li>destroy: unbinds the timer and clears the container</li>
+            </ul>
+            <pre class="prettyprint">
+                $('#box').wheelclock('toggle');
+                $('#box').wheelclock('reset');
+                $('#box').wheelclock('destroy');
+            </pre>
+        </div>
+    </body>
+</html>
